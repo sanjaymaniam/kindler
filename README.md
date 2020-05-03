@@ -20,4 +20,4 @@ How To Get List Of Titles:
 To Do:
 - Sort highlights by location and datetime.
 - Avoid extra delimeter in getLines() by indexing properly.
-- Build importasJSON for webapps.
+- Build importAsJSON for webapps.
