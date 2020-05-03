@@ -1,4 +1,4 @@
-Free your highlights from Kindle's My Clippings.txt.
+Free your highlights from Kindle's `My Clippings.txt`.
 
 
 How To Get Help:
@@ -9,7 +9,7 @@ How To Get Help:
 How To Get All Your Highlights:
 1. Clone this repository. Paste your My Clippings.txt file in it.
 2. Run `python kindler.py importAsTxt`.
-3. Kindler makes a folder `highlights` in your working directory. Open it.
+3. Kindler makes a folder `/highlights` in your working directory. Open it.
 4. Pow! Your highlights are in text files named after the book's title.
 
 How To Get List Of Titles:
