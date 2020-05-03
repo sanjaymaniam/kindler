@@ -1,4 +1,4 @@
-Manage your highlights from Kindle's My Clippings.txt
+Free your highlights from Kindle's My Clippings.txt.
 
 
 How To Get Help:
