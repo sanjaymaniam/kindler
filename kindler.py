@@ -111,10 +111,15 @@ def importAsJSON():
 
 
 if __name__ == "__main__":
-    option, units = argv[1], getUnits()
+    option = argv[1]
 
     modes = {'help': help, 'showTitles': showTitles,
              'importAsTxt': importAsTxt, 'importAsJSON': importAsJSON}
+
+    try:
+        units = getUnits()
+    except FileNotFoundError:
+        print("Kindler: I can't find your My Clippings.txt file here. Did you paste it? \n")
 
     try:
         outputs = modes[option]()
