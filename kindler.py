@@ -2,17 +2,12 @@
 Project:    Kindler
 Started:    20/04/2020
 Summary:    Scrape your highlights from Kindle's My Clippings.txt
-
-TO-DO:
-    [] sort highlights from title by location.
 """
 
 from sys import argv
 import os
 
-my_clippings = 'My Clippings.txt'
-count = 0
-
+my_clippings = 'My Clippings.txt' #filename.
 
 def getLines():
     "Returns list of all lines from file. Extra delimeter is added to beginning."
@@ -27,7 +22,7 @@ def getUnits():
 
     def delimeterIndices(delimeter='=========='):
         "Returns indices of lines with delimeter. We use this to identify individual highlights."
-        lines = getLines()
+        lines = getLines() #why call getLines() twice?
         return [i for i, line in enumerate(lines) if line == '==========' and i != len(lines)-1]
         # if no extra delimeter in getLines(), last condition is just len(lines). Which is easier to read?
 
