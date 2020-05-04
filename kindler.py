@@ -39,10 +39,10 @@ def getUnits():
 
     for delimeterIndex in delimeterIndices():
         title = lines[delimeterIndex+1]
-        det = lines[delimeterIndex+2]
+        details = lines[delimeterIndex+2]
         # loc = parseDetails(lines[delimeterIndex+2])
         message = lines[delimeterIndex+4]
-        units.append((title, det, message))
+        units.append((title, details, message))
     return units
 
 
