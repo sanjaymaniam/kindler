@@ -7,7 +7,8 @@ Summary:    Scrape your highlights from Kindle's My Clippings.txt
 from sys import argv
 import os
 
-my_clippings = 'My Clippings.txt' #filename.
+my_clippings = 'My Clippings.txt'  # filename.
+
 
 def getLines():
     "Returns list of all lines from file. Extra delimeter is added to beginning."
@@ -22,7 +23,7 @@ def getUnits():
 
     def delimeterIndices(delimeter='=========='):
         "Returns indices of lines with delimeter. We use this to identify individual highlights."
-        lines = getLines() #why call getLines() twice?
+        lines = getLines()  # why call getLines() twice?
         return [i for i, line in enumerate(lines) if line == '==========' and i != len(lines)-1]
         # if no extra delimeter in getLines(), last condition is just len(lines). Which is easier to read?
 
@@ -35,7 +36,8 @@ def getUnits():
 
     for delimeterIndex in delimeterIndices():
         title = lines[delimeterIndex+1]
-        details = parseDetails(lines[delimeterIndex+2]) #(highlight/note/bookmark, location)
+        # (highlight/note/bookmark, location)
+        details = parseDetails(lines[delimeterIndex+2])
         message = lines[delimeterIndex+4]
         units.append((title, details, message))
     return units
@@ -112,7 +114,7 @@ if __name__ == "__main__":
              'importAsTxt': importAsTxt, 'importAsJSON': importAsJSON}
 
     if option == 'help':
-       help()
+        help()
     else:
         try:
             units = getUnits()
@@ -121,4 +123,5 @@ if __name__ == "__main__":
             except KeyError:
                 print('Invalid option! For help, run: python kindler.py help')
         except FileNotFoundError:
-            print("Kindler: I can't find your My Clippings.txt file here. Did you paste it? \n")
+            print(
+                "Kindler: I can't find your My Clippings.txt file here. Did you paste it? \n")
