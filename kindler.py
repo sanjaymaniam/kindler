@@ -29,11 +29,7 @@ def getUnits():
     def parseDetails(details):
         """Returns location from string of form below. For example below, returns 3578.)
         - Your Highlight on page 222 | location 3576-3578 | Added on Tuesday, 17 September 2019 10:34:09"""
-        try:
-            return int(details.split()[8].split('-')[1])
-        except IndexError:
-            return int(details.split()[5])
-            print('flop', details)
+        pass
 
     lines, units = getLines(), []
 
@@ -66,7 +62,7 @@ def help():
                 'importAsTxt': 'Import your highlights as .txt in ../highlights.',
                 'importAsJSON': 'Import your highlights as JSON.'}
 
-    print("Welcome to kindler.py, use me to scrape your highlights from Kindle's My Clippings.txt")
+    print("Welcome to kindler.py, use me to scrape your highlights from Kindle's My Clippings.txt \n")
     print("Here are commands and their descriptions: \n")
 
     for command, description in features.items():
@@ -113,15 +109,17 @@ def importAsJSON():
 if __name__ == "__main__":
     option = argv[1]
 
-    modes = {'help': help, 'showTitles': showTitles,
+    modes = {'showTitles': showTitles,
              'importAsTxt': importAsTxt, 'importAsJSON': importAsJSON}
 
-    try:
-        units = getUnits()
-    except FileNotFoundError:
-        print("Kindler: I can't find your My Clippings.txt file here. Did you paste it? \n")
-
-    try:
-        outputs = modes[option]()
-    except KeyError:
-        print('Invalid option! For help, run: python kindler.py help')
+    if option == 'help':
+       help()
+    else:
+        try:
+            units = getUnits()
+            try:
+                outputs = modes[option]()
+            except KeyError:
+                print('Invalid option! For help, run: python kindler.py help')
+        except FileNotFoundError:
+            print("Kindler: I can't find your My Clippings.txt file here. Did you paste it? \n")
