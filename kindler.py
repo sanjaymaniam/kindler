@@ -27,16 +27,15 @@ def getUnits():
         # if no extra delimeter in getLines(), last condition is just len(lines). Which is easier to read?
 
     def parseDetails(details):
-        """Returns location from string of form below. For example below, returns 3578.)
-        - Your Highlight on page 222 | location 3576-3578 | Added on Tuesday, 17 September 2019 10:34:09"""
-        pass
+        "Returns tuple (kind_of_unit, location). For locations of type '100-123', we take 100."
+        listed_details = details.split()
+        return(listed_details[2], int(f"{listed_details[8] if 'on' not in listed_details[8] else listed_details[5]}".split('-')[0]))
 
     lines, units = getLines(), []
 
     for delimeterIndex in delimeterIndices():
         title = lines[delimeterIndex+1]
-        details = lines[delimeterIndex+2]
-        # loc = parseDetails(lines[delimeterIndex+2])
+        details = parseDetails(lines[delimeterIndex+2]) #(highlight/note/bookmark, location)
         message = lines[delimeterIndex+4]
         units.append((title, details, message))
     return units
