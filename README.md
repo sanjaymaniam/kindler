@@ -18,7 +18,7 @@ How To Get List Of Titles:
 3. There! Your titles are printed on terminal.
 
 To Do:
-- **Sort highlights by location.**
+- ~Sort highlights by location.~
 - Sort highlights by datetime.
 - Avoid extra delimeter in getLines() by indexing properly.
 - **Build importAsJSON for webapps.**
