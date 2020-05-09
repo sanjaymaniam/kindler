@@ -22,3 +22,4 @@ To Do:
 - Sort highlights by datetime.
 - Avoid extra delimeter in getLines() by indexing properly.
 - **Build importAsJSON for webapps.**
+- Handle duplicate and incomplete highlights.
