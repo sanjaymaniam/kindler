@@ -4,8 +4,8 @@ Started:    20/04/2020
 Summary:    Scrape your highlights from Kindle's My Clippings.txt
 """
 
-from sys import argv
 import os
+from sys import argv
 
 my_clippings = 'My Clippings.txt'  # filename.
 
@@ -79,12 +79,11 @@ def importAsTxt():
     "Imports your clippings as txt file, saves them in ../highlights/{title}.txt"
 
     def highlightsFrom(title):
-        "Returns list of all highlights in given title. Removes duplicates."
+        "Returns set of all highlights in given title. Removes duplicates."
         matching_units = filter((lambda unit: title in unit[0]), units)
-
-        highlights = [matching_unit[2]
-                      for matching_unit in sorted(matching_units, key=(lambda unit: unit[1]))]
-        return set(highlights)
+        temp = sorted(matching_units, key=(lambda x: x[1][1]))
+        highlights = [unit[2] for unit in temp]
+        return highlights
 
     def makeFile(title):
         cwd = os.path.abspath(os.curdir)
