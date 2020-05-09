@@ -79,7 +79,7 @@ def importAsTxt():
     "Imports your clippings as txt file, saves them in ../highlights/{title}.txt"
 
     def highlightsFrom(title):
-        "Returns set of all highlights in given title. Removes duplicates."
+        "Returns list of all highlights in given title."
         matching_units = filter((lambda unit: title in unit[0]), units)
         temp = sorted(matching_units, key=(lambda x: x[1][1]))
         highlights = [unit[2] for unit in temp]
