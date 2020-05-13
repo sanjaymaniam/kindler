@@ -16,10 +16,3 @@ How To Get List Of Titles:
 1. Clone this repository. Paste your My Clippings.txt file in it.
 2. Run `python kindler.py showTitles`.
 3. There! Your titles are printed on terminal.
-
-To Do:
-- ~Sort highlights by location.~
-- Sort highlights by datetime.
-- Avoid extra delimeter in getLines() by indexing properly.
-- **Build importAsJSON for webapps.**
-- Handle duplicate and incomplete highlights.
